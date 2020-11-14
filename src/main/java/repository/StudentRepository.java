@@ -20,6 +20,9 @@ public class StudentRepository
 		   
 		 int count=0;
 		 
+		 // this code for  covert date java.util to java.sql
+		 java.sql.Date dob=new java.sql.Date(s.getStudent_dob().getTime());
+		 java.sql.Date doj=new java.sql.Date(s.getStudent_doj().getTime());
 		 
 		String query="insert into student values(?,?,?,?)";
 		 try {
@@ -27,8 +30,8 @@ public class StudentRepository
 			 PreparedStatement ps=DatabaseConnectionRepository.getConnection().prepareStatement(query);
 		     ps.setString(1,s.getStudent_no());
 		     ps.setString(2,s.getStudent_name());
-		     ps.setDate(3,(java.sql.Date) s.getStudent_dob());
-		     ps.setDate(4,(java.sql.Date) s.getStudent_doj());
+		     ps.setDate(3,dob);
+		     ps.setDate(4,doj);
 		    count= ps.executeUpdate();
 		 
 		 } catch (SQLException e) {
@@ -39,11 +42,12 @@ public class StudentRepository
 		 return count;
 	 }
 	
+	 //this method is use to get all student data....
 	
 	public List<Student> getStudent()
 	{
 		
-		ArrayList<Student> st=new ArrayList<>();
+		ArrayList<Student> slist=new ArrayList<>();
 		
 		  try {
 			PreparedStatement ps=DatabaseConnectionRepository.getConnection().prepareStatement("select * from student");
@@ -54,6 +58,8 @@ public class StudentRepository
 			  s.setStudent_no(rs.getString(1));
 			  s.setStudent_name(rs.getString(2));
 			  s.setStudent_dob(rs.getDate(3));
+		      s.setStudent_doj(rs.getDate(4));
+		      slist.add(s);
 		  }
 		  
 		  
@@ -63,7 +69,7 @@ public class StudentRepository
 		}
 		  
 		  
-		return st;
+		return slist;
 	}
 	
 	
