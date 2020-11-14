@@ -54,6 +54,26 @@ public class ProjectRepository {
 		}
 		
 		return plist;
-	}
+		}
 
+	
+	//this method is use for the update project table
+	public int updateProject(Project p)
+	{
+		int count=0;
+		String query="update project set prj_name=? , prj_dur=? ,prj_platform=? where prj_no=?";
+		try {
+		PreparedStatement ps=DatabaseConnectionRepository.getConnection().prepareStatement(query);
+	     ps.setString(1,p.getPrj_name());
+	     ps.setInt(2,p.getPrj_dur());
+	     ps.setString(3,p.getPrj_platform());
+	     ps.setString(4,p.getPrj_no());
+	    count= ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 }

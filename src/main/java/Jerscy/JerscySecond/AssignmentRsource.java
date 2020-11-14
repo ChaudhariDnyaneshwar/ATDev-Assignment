@@ -132,7 +132,24 @@ public class AssignmentRsource {
 		return result;
 	 }
 	    
-
+//this request is use for update project table....
+	 @PUT
+	 @Path("project")
+	 @Consumes(MediaType.APPLICATION_JSON)
+	 public String updateProject(Project p)
+	 {
+		int a= prepo.updateProject(p);
+		String result="";
+		if(a>0)
+		{
+				result="update successfully done...";
+		}
+		else
+		{
+			result="update failed pls try later...";
+		}
+		return result;	 
+		}
 
 }
 
