@@ -132,6 +132,7 @@ public class AssignmentRsource {
 		return result;
 	 }
 	    
+//=================================================	 
 //this request is use for update project table....
 	 @PUT
 	 @Path("project")
@@ -150,7 +151,26 @@ public class AssignmentRsource {
 		}
 		return result;	 
 		}
-
+	 
+//=============================================================
+	 //this request is user for the delete project table row...
+	 @DELETE
+	 @Path("project/{no}")
+	public String deleteProject(@PathParam("no")String prj_no)
+	{
+		int a=prepo.deleteProject(prj_no);
+		String result="";
+		if(a>0)
+		{
+				result="delete successfully done...";
+		}
+		else
+		{
+			result="delete failed pls try later...";
+		}
+		return result;	 
+	}
+	 
 }
 
 	

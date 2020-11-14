@@ -76,4 +76,23 @@ public class ProjectRepository {
 		
 		return count;
 	}
+	
+	//this method is use for the delete the project table row...
+	
+	public int deleteProject(String prj_no)
+	{
+		int count=0;
+		String query="delete from project where prj_no=?";
+		
+		try {
+			PreparedStatement ps=DatabaseConnectionRepository.getConnection().prepareStatement(query);
+		     ps.setString(1, prj_no);
+		    count=ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 }
