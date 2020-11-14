@@ -24,7 +24,7 @@ public class AssignmentRsource {
     StudentRepository srepo=new StudentRepository();
 		   
 	//===================================================	   
-		//user for get all record from student table
+		//use for get all record from student table
 		   
 		@GET
 		@Path("student")
@@ -37,7 +37,7 @@ public class AssignmentRsource {
 	   }
 		
 	//=====================================================
-		//user for adding data in student table.....
+		//use for adding data in student table.....
 		@POST
 		@Path("student")
 		@Consumes(MediaType.APPLICATION_JSON)
@@ -106,18 +106,30 @@ public class AssignmentRsource {
 		@Produces(MediaType.APPLICATION_JSON)
 		public List<Project> getProjectList()
 		{
-			System.out.println("its running");
-			return prepo.getAllProject();
-			
+			return prepo.getAllProject();	
 		}
 	
  //===============================================================
 	    
 //this request if for inserting data into projection table...
 	    
+	 @POST
+	 @Path("project")
+	 @Consumes(MediaType.APPLICATION_JSON)
 	 public String insertProject(Project p)
 	 {
-		 return "";
+		int a= prepo.insertProject(p);
+		 
+		String result="";
+		if(a>0)
+		{
+				result="insertion successfully done...";
+		}
+		else
+		{
+			result="Insertion failed pls try later...";
+		}
+		return result;
 	 }
 	    
 
