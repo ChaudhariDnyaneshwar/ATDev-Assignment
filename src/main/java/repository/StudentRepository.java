@@ -11,7 +11,8 @@ import pojo.Student;
 
 public class StudentRepository 
 {
-
+	
+//================================================================
 	//this method is use for adding data in student table..
 	
 	 public int insertStudentData(Student s)
@@ -42,6 +43,7 @@ public class StudentRepository
 		 return count;
 	 }
 	
+//========================================================	 
 	 //this method is use to get all student data....
 	
 	public List<Student> getStudent()
@@ -72,6 +74,7 @@ public class StudentRepository
 		return slist;
 	}
 	
+//========================================================================	
 //this method is user for the updating the student table data...
 	public int updateStudent(Student s)
 	{
@@ -99,4 +102,21 @@ public class StudentRepository
 		return count;
 	}
 	
+//=========================================================================
+	//this method is user for delete student table data...
+	
+	public int deleteStudent(String student_no)
+	{
+		String query="delete from student where student_no=?";
+		int count=0;
+		try {
+ PreparedStatement ps=DatabaseConnectionRepository.getConnection().prepareStatement(query);
+      ps.setString(1,student_no);
+     count=ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
 }
