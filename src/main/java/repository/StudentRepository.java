@@ -72,5 +72,31 @@ public class StudentRepository
 		return slist;
 	}
 	
+//this method is user for the updating the student table data...
+	public int updateStudent(Student s)
+	{
+		  String query="update student set student_name=? , student_dob=? ,student_doj=? where student_no=?";
+		
+		  // this code for  covert date java.util to java.sql
+			 java.sql.Date dob=new java.sql.Date(s.getStudent_dob().getTime());
+			 java.sql.Date doj=new java.sql.Date(s.getStudent_doj().getTime());
+			
+		int count=0;
+		  try {
+		PreparedStatement ps=DatabaseConnectionRepository.getConnection().prepareStatement(query);
+		  ps.setString(1,s.getStudent_name());
+		  ps.setDate(2, dob);
+		  ps.setDate(3, doj);
+		  ps.setString(4,s.getStudent_no());
+	count=ps.executeUpdate();
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 	
 }
