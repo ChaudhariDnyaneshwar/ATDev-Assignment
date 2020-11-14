@@ -33,6 +33,11 @@ public class Student
 	public void setStudent_doj(String student_doj) {
 		Student_doj = student_doj;
 	}
+	@Override
+	public String toString() {
+		return "Student [Student_no=" + Student_no + ", Student_name=" + Student_name + ", Student_dob=" + Student_dob
+				+ ", Student_doj=" + Student_doj + "]";
+	}
 	
 	
 }
