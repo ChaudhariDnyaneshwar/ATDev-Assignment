@@ -18,6 +18,8 @@ public class StudentResource
 {
 	   StudentRepository srepo=new StudentRepository();
 	   
+	//user for get all record in student table
+	   
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
    public List<Student> getStudent()
@@ -26,6 +28,7 @@ public class StudentResource
 	            
 		return srepo.getStudent();
    }
+	
 	//user for adding data in student table.....
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

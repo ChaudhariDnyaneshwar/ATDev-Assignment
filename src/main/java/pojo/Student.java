@@ -7,8 +7,8 @@ public class Student
 
 	private String Student_no;
 	private String Student_name;
-	private String Student_dob;
-	private String Student_doj;
+	private Date Student_dob;
+	private Date Student_doj;
 	public String getStudent_no() {
 		return Student_no;
 	}
@@ -21,23 +21,18 @@ public class Student
 	public void setStudent_name(String student_name) {
 		Student_name = student_name;
 	}
-	public String getStudent_dob() {
+	public Date getStudent_dob() {
 		return Student_dob;
 	}
-	public void setStudent_dob(String student_dob) {
+	public void setStudent_dob(Date student_dob) {
 		Student_dob = student_dob;
 	}
-	public String getStudent_doj() {
+	public Date getStudent_doj() {
 		return Student_doj;
 	}
-	public void setStudent_doj(String student_doj) {
+	public void setStudent_doj(Date student_doj) {
 		Student_doj = student_doj;
 	}
-	@Override
-	public String toString() {
-		return "Student [Student_no=" + Student_no + ", Student_name=" + Student_name + ", Student_dob=" + Student_dob
-				+ ", Student_doj=" + Student_doj + "]";
-	}
-	
+		
 	
 }
