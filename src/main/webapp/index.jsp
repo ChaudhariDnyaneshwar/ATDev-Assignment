@@ -2,7 +2,7 @@
 <body>
     <h2>Jersey RESTful Web Application!</h2>
     <p><a href="webapi/myresource">Jersey resource</a>
-    <p><a href="webapi/demo">Demo resource</a>
+    <p><a href="webapi/student">Demo resource</a>
     <p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
     for more information on Jersey!
 </body>
